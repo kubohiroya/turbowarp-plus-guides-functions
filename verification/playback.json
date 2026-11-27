@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "headless": true,
+  "editorRevision": "8af3660bd0bb0ddefbe51a9694f4e843a7200f76",
+  "artifact": {
+    "filename": "functions-4.0.sb3",
+    "bytes": 5257632,
+    "sha256": "65cf3d4debfa5bf844c2a9261035015c9f0be0d6d4342a9ddda46369b83594b5"
+  },
+  "checks": [
+    {
+      "unit": "role",
+      "guide": "click"
+    },
+    {
+      "unit": "role",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "inputs",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "cohesion",
+      "guide": "event:workspace.changed"
+    },
+    {
+      "unit": "cohesion",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "effects",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "testing",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "refactor",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    }
+  ],
+  "errors": []
+}

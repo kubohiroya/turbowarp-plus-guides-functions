@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プラとモコの関数教室</title>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<main>
+<header>
+<p class="series">プラとモコのエディター教室</p>
+<h1>プラとモコの関数教室</h1>
+<p>Scratchの定義ブロックを出発点に、呼び出し側から読みやすい処理を設計します。</p>
+</header>
+<nav aria-label="単元の目次">
+<h2>6つの単元</h2>
+<ol><li><a href="#role">関数の正体</a></li>
+<li><a href="#inputs">引数と戻り値</a></li>
+<li><a href="#cohesion">どう分ける？</a></li>
+<li><a href="#effects">副作用と状態</a></li>
+<li><a href="#testing">どう確かめる？</a></li>
+<li><a href="#refactor">育てる・直す</a></li></ol>
+</nav>
+<section id="play">
+<h2>紙芝居で試す</h2>
+<p>約10〜12分。どの単元からでも始められます。解説、クイズ、答えの順に進みます。</p>
+<p><a class="download" href="work/functions-4.0.sb3" download>紙芝居のSB3をダウンロード</a></p>
+<ol>
+<li><a href="https://kubohiroya.github.io/turbowarp-plus-editor/editor.html?lang=ja">Plus Editor</a>で「ファイル」→「SB3ファイルを開く…」を選びます。</li>
+<li>実行画面を引出しに表示して緑の旗を押し、単元を選びます。ステージにフォーカスがある間はSpaceで説明やGuideを先へ進められます。</li>
+</ol>
+<figure><img src="images/menu.png" alt="緑の旗を押すと表示される6単元の目次"><figcaption>プラとモコの紙芝居の目次。</figcaption></figure>
+<p>紙芝居で「関数れんしゅう」スプライトを開くと「星を並べる」の呼び出しがあります。Gキーで星を出し、個数や間隔を変えてもう一度試します。標準の定義ブロックは手続きなので、戻り値は料金の計算例で学びます。</p>
+
+</section>
+<section class="unit" id="role">
+<h2>1. 関数の正体</h2>
+<p>呼び出し側を「星を並べる」と読めるようになると、繰り返しやクローンの詳細を読み直す回数が減ります。定義を直す場所と、実行して使う場所がはっきりします。</p>
+<ul><li>名前は仕事の目的を表す</li>
+<li>定義と呼び出しを区別する</li>
+<li>再利用に加え、考えを整理するためにも使う</li></ul>
+<p><strong>試すこと</strong>　作品内の処理を一つ選び、何をするかが伝わる名前に変えてみます。呼ぶ側だけを読んで何が起きるか説明します。</p>
+</section>
+<section class="unit" id="inputs">
+<h2>2. 引数と戻り値</h2>
+<p>仮引数は定義にある受け取り口、実引数は呼び出すときに渡す具体的な値です。戻り値がある関数なら、その値を次の処理で使えます。</p>
+<ul><li>引数：仕事に必要な材料</li>
+<li>戻り値：呼んだ側が使える結果</li>
+<li>Scratch標準の定義ブロックは値を返さない</li></ul>
+<p><strong>試すこと</strong>　料金(3, 120) の360を、表示する例とさらに割引を計算する例に分けて書きます。表示だけの場合に、呼び出し側は何を受け取れるか考えます。</p>
+</section>
+<section class="unit" id="cohesion">
+<h2>3. どう分ける？</h2>
+<p>「星を並べる」と「音量を設定する」は、変えたくなる理由が異なります。目的を説明しにくい関数は、呼び出しだけで手順が読める単位に分ける候補です。</p>
+<ul><li>まとまりのある仕事を、目的が伝わる名前に</li>
+<li>変更の理由が違う仕事は分離を検討</li>
+<li>細分化しすぎて全体を読みにくくしない</li></ul>
+<p><strong>試すこと</strong>　星の配置処理を読み、個数と間隔を渡す部分と、配置する手順を見分けます。自分のスクリプトでも同じ分け方が役立つか考えます。</p>
+</section>
+<section class="unit" id="effects">
+<h2>4. 副作用と状態</h2>
+<p>位置、音、スコアの変更は作品に必要な働きです。計算と状態変更を区別し、関数が読み書きする状態が名前や引数から分かるようにします。</p>
+<ul><li>副作用は必要。ただし影響を明示する</li>
+<li>計算と外部への作用を分けて考える</li>
+<li>隠れた共有状態・乱数・時刻に注意</li></ul>
+<p><strong>試すこと</strong>　得点が変わる処理を探し、入力になる値と、呼んだ後に変わる値を書きます。別のスプライトが同じ値を書いていないかも確認します。</p>
+</section>
+<section class="unit" id="testing">
+<h2>5. どう確かめる？</h2>
+<p>入力と結果の約束を先に決めると、実装とは独立に期待値を選べます。普通の入力、下限の0、その隣の1を試すと繰り返しのずれを見つけやすくなります。</p>
+<ul><li>入力・結果・対象外入力の約束を決める</li>
+<li>普通の例と境界、不具合の再現例を選ぶ</li>
+<li>期待値は実装の写しから作らない</li></ul>
+<p><strong>試すこと</strong>　星の個数を0、1、5に変え、Gキーを押して期待した個数が一瞬並ぶか観察します。幅や間隔で重なる場合は見分けやすく調整します。</p>
+</section>
+<section class="unit" id="refactor">
+<h2>6. 育てる・直す</h2>
+<p>リファクタリングでは、呼び出し側から見える動作を保ちながら、名前や処理の分け方を改善します。小さい変更の前後で同じ入力を試せば、原因を絞れます。</p>
+<ul><li>振る舞いを保つ、小さな構造の改善</li>
+<li>重複は同じ知識か、変更の理由も考える</li>
+<li>確認と差分レビューを組み合わせる</li></ul>
+<p><strong>試すこと</strong>　星を出す処理の名前を読みやすくした後、同じ個数・間隔で動かします。星の数と配置が変わっていないことを確認します。</p>
+</section>
+<section id="references"><h2>参考資料</h2><ul><li><a href="https://www.scratchfoundation.org/learn/learning-library/my-blocks-custom-blocks">Scratch Foundationの定義ブロック解説</a></li>
+<li><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Python公式チュートリアルの関数定義</a></li>
+<li><a href="https://refactoring.com/">Martin Fowlerのリファクタリング解説</a></li></ul></section>
+<footer><p>Hiroya Kubo · Kamishibai App 4.0.21</p></footer>
+</main>
+</body>
+</html>
