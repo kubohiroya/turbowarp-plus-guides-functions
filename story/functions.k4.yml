@@ -3,12 +3,6 @@ controls:
   keymaps:
     production:
       Space: navigation.nextAction
-bubbleStyles:
-  lesson:
-    maxWidth: 320
-    textLocale: ja
-    distance: 0
-    tailLength: 8
 assets:
   PuraIdle:
     kind: costume
@@ -58,6 +52,10 @@ assets:
     kind: costume
     file: assets/Menu.svg
     target: Menu
+  AdvanceCue:
+    kind: costume
+    file: assets/AdvanceCue.svg
+    target: AdvanceCue
   functionsMenu:
     kind: backdrop
     file: assets/functionsMenu.svg
@@ -152,6 +150,7 @@ actors:
   AnswerB: AnswerB
   NextUnit: NextUnit
   Menu: Menu
+  AdvanceCue: AdvanceCue
 cover:
   backdrop: functionsMenu
 scenes:
@@ -167,6 +166,7 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
     - Pura.hide: {}
     - Moko.hide: {}
     - Unit1.show:
@@ -213,6 +213,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -223,61 +234,34 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 関数って、算数のテストに出る怖いやつ？ 今日は欠席します！
-        seconds: 6.1
-        styles:
-          - lesson
-    - Pura.say:
-        text: 出席して。プログラムでは、ひとまとまりの仕事に名前をつけて、呼び出せるようにするんだ。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: じゃあ「なんかいい感じにする」関数！ これ一本で完成！
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: 名前があいまいだと、頼む側が困るよ。「星を並べる」なら、何をするか想像できるね。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: 仕事を書くのが定義。使うのが呼び出し。レシピを書く人と、注文する人みたい！
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。呼ぶ場所では、細かい手順より「今、何をしたいか」が見える。これが抽象化の役目だよ。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 一度しか使わない仕事は、関数にしちゃダメ？
-        seconds: 4.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: 一度でも、名前が考えを整理し、手順を読みやすくするなら役に立つ。回数だけでは決めないよ。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: Scratchなら「ブロック定義」だね。「星を並べる」で中の手順を隠せる！
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: うん。標準の定義ブロックは、動きなどを行う手続き。値を返す関数との違いも次で扱おう。
-        seconds: 8.2
-        styles:
-          - lesson
-    - Moko.say:
-        text: プラがエディタの外側まで出張した！ 検索欄から「星を並べる」を探してみよう。
-        seconds: 7.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:1
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:2
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:3
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:4
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:5
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:6
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:7
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:8
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:9
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:10
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:11
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - broadcastMessageAndWait: lesson:role
     - goto: role_quiz
   role_quiz:
@@ -292,16 +276,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -326,21 +303,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 番号だけでは目的を思い出しにくいね。呼ぶ側が「何をするか」を読める方を選ぼう。
-        seconds: 7.7
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:12
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: role_quiz
   role_yes:
     - stage: Recap_functions_role
@@ -354,21 +332,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 「星を並べる」は仕事の目的が伝わるね。名前は、あとで読む自分への説明にもなる。
-        seconds: 7.7
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:13
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -393,6 +382,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -403,66 +403,36 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 「料金を計算する」に、お金を入れたらジュースが出た！
-        seconds: 5.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: それは自動販売機。ここでは材料を引数で渡して、計算結果を戻り値として受け取ろう。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: 「料金」のカッコにある個数と単価は、材料の置き場所？
-        seconds: 5.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: 定義に書く受け取り口が仮引数。呼ぶときに渡す3や120が実引数だよ。
-        seconds: 6.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: 3個、1個120円なら360円！ 「360」って言えば、返したことになる？
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: セリフは画面への表示。戻り値は、呼んだ側が次の計算などに使える結果。行き先が違うんだ。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 戻った360を「割引後の料金」の計算に渡せる。仕事をつなげられるね！
-        seconds: 6.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 入力と出力をはっきりさせると、つなぎ方も、何を確かめるかも分かりやすい。
-        seconds: 7.2
-        styles:
-          - lesson
-    - Moko.say:
-        text: でもScratchの標準の定義ブロック、丸い値としては使えないよ？
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: そのとおり。標準の定義ブロックには戻り値の仕組みがない。値を返す一般の関数と同じだと思わないでね。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 変数で結果を受け渡す方法はあるけど、誰がいつ書くか、約束が必要になるんだね。
-        seconds: 7.5
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。今日は入力を受け取る練習ブロックと、上の言語に依存しない料金の例を分けて考えよう。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:14
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:15
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:16
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:17
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:18
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:19
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:20
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:21
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:22
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:23
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:24
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:25
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: inputs_quiz
   inputs_quiz:
     - stage: Quiz_functions_inputs
@@ -476,16 +446,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -510,21 +473,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 画面への表示と、呼ぶ側への返却は別の働きだよ。「結果を次に使える」という説明を探そう。
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:26
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: inputs_quiz
   inputs_yes:
     - stage: Recap_functions_inputs
@@ -538,21 +502,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 戻り値は呼び出した側に渡る結果。表示するか、さらに計算するかは、受け取った側が決められるね。
-        seconds: 8.8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:27
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -577,6 +552,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -587,56 +573,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 短い関数が良いらしいから、全ブロックを一個ずつ定義にしたよ！
-        seconds: 6.2
-        styles:
-          - lesson
-    - Pura.say:
-        text: 細切れすぎると、全体を読むために行ったり来たり。長さだけでは良さを決められない。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: じゃあ、ゲームを作る処理も、セーブも、音楽も「全部やる」にまとめる！
-        seconds: 6.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 両極端！ 一緒に理解し、一緒に変えたい仕事のまとまりを考えよう。これを凝集度というよ。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 「星を並べる」は、並べ方の話。「音量を変える」は、音の話。変更の理由が違うね。
-        seconds: 7.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。呼ぶ側では並べる意図を示し、中では位置を計算して描く。必要ならその手順も分けよう。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 引数が十個になったら、全部カッコに詰めればいい？
-        seconds: 5.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: 必要な材料か見直す合図だね。ただし「何個以内なら正解」という万能な数字はないよ。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: 個数と間隔なら、並べ方を試せる。練習ブロックの呼び出しが読める！
-        seconds: 6.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: 「関数れんしゅう」を開いてね。これからガイドでコードの場所を示すよ。呼び出しの数値を一つ変えてみよう。
-        seconds: 9.6
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:28
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:29
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:30
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:31
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:32
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:33
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:34
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:35
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:36
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:37
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - broadcastMessageAndWait: lesson:cohesion
     - goto: cohesion_quiz
   cohesion_quiz:
@@ -651,16 +613,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -685,21 +640,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 短さだけが目標だと、仕事の意味が見えなくなることもあるね。どんなまとまりかを考えよう。
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:38
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: cohesion_quiz
   cohesion_yes:
     - stage: Recap_functions_cohesion
@@ -713,21 +669,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 目的が一つに説明でき、一緒に変える手順がまとまると読みやすい。分けた後も全体の流れを読もう。
-        seconds: 8.8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:39
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -752,6 +719,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -762,61 +740,34 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 副作用って、関数を使うと眠くなるやつ？
-        seconds: 4.5
-        styles:
-          - lesson
-    - Pura.say:
-        text: 薬じゃないよ。ここでは、値を返す以外に、外の状態へ影響すること。表示、保存、変数の変更などだ。
-        seconds: 9
-        styles:
-          - lesson
-    - Moko.say:
-        text: じゃあスプライトを動かすのも副作用？ 作品から全部消す？
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 必要な働きだよ。大切なのは、何が変わるか分かること。副作用そのものが悪いわけじゃない。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 「料金を計算する」を呼んだら、点数がゼロになった。これはびっくり。
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 名前から読めない変更は追いにくいね。計算と画面の更新を分けると、確かめる場所も絞れる。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 世界中の変数をこっそり読む関数は、材料がカッコに見えないね。
-        seconds: 6.2
-        styles:
-          - lesson
-    - Pura.say:
-        text: 隠れた依存だね。必要な材料を明示し、共有状態は誰が変更するか決めると、調査しやすくなる。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 同じ引数なら、どの関数も同じ結果になるんでしょ？
-        seconds: 5.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: 乱数や現在時刻、外の変数を読むと変わる場合がある。そうした依存を除いた純粋な計算なら予測しやすいよ。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 計算係と、スプライトを動かす係。役割を分けて、必要なところでつなげよう！
-        seconds: 7.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:40
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:41
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:42
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:43
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:44
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:45
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:46
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:47
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:48
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:49
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:50
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: effects_quiz
   effects_quiz:
     - stage: Quiz_functions_effects
@@ -830,16 +781,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -864,21 +808,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 無関係な変数の変更が隠れていると、原因探しが難しくなるね。影響が読める方を選ぼう。
-        seconds: 8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:51
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: effects_quiz
   effects_yes:
     - stage: Recap_functions_effects
@@ -892,21 +837,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 計算の入力と結果、表示の変更を別々に見られるね。共有状態を変える場合も、約束を明示しよう。
-        seconds: 8.7
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:52
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -931,6 +887,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -941,61 +908,34 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: テストした！ 料金(3,120)が360。宇宙のすべてを保証します！
-        seconds: 6.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 一例の成功だけでは、すべては保証できないよ。まず入力と結果の約束、つまり契約を考えよう。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 今回は、個数は0以上の整数、単価も0以上。料金は掛け算の結果だね。
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: その約束から、普通の例、ゼロ、一個などの境界を選ぶ。期待する結果は、実装とは別に考えるんだ。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 個数がマイナスだったら、逆にお金がもらえる？
-        seconds: 4.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: どう扱うかは仕様次第。拒否する、対象外とするなどを決めよう。勝手に補正してよいとは限らない。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: バグが出た入力も、テストに残せるね。また同じバグが出たら気づける！
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。テストを先に失敗させ、直したら成功するか確かめると、その不具合を検出できると分かる。
-        seconds: 8.7
-        styles:
-          - lesson
-    - Moko.say:
-        text: Scratchなら、個数0、1、5で実行して動きを観察できる。自動チェックは結果の受け渡しも設計が要るね。
-        seconds: 9.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 中の手順をそのまま写したテストでは、同じ勘違いをしがち。使う側が欲しい振る舞いを確かめよう。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: テストはお守りじゃなくて、約束と観察のセット。ぼくの漫才も毎回テスト……観客が厳しい！
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:53
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:54
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:55
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:56
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:57
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:58
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:59
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:60
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:61
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:62
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:63
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: testing_quiz
   testing_quiz:
     - stage: Quiz_functions_testing
@@ -1009,16 +949,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -1043,21 +976,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 「思う」だけでは確認にならないね。期待する結果を用意し、具体的な入力で比べよう。
-        seconds: 7.9
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:64
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: testing_quiz
   testing_yes:
     - stage: Recap_functions_testing
@@ -1071,21 +1005,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 境界では、繰り返しの回数などの間違いが見つかることがある。対象外の入力の方針も決めておこう。
-        seconds: 8.8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:65
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -1110,6 +1055,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -1120,66 +1076,36 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: リファクタリングしたよ！ 星を並べるゲームが、巨大ロボに変身！
-        seconds: 6.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: それは仕様変更。リファクタリングは、外から見える振る舞いを保ったまま、中の構造を改善することだよ。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: まず現状を確かめる。次に名前を直す。もう一度確かめる。小さく進めるんだね。
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。関数を取り出すなら、必要な入力や、変わる状態を確認してから移す。
-        seconds: 7
-        styles:
-          - lesson
-    - Moko.say:
-        text: 似たコードを二つ発見！ 即座に共通関数にしよう。
-        seconds: 5.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: 同じ知識やルールを表す重複かな？ たまたま形が似ているだけなら、無理にまとめると変更が絡み合うよ。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 割引の計算と、ゲームのダメージ計算。掛け算が似ていても、変わる理由は違うかも。
-        seconds: 7.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: いい例だね。共通化した後に条件や引数が増えすぎるなら、別の仕事を混ぜていないか見直そう。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 動作確認と、差分を見る作業を組み合わせたいな。Gitなら何を変えたか読み返せる。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: ただしGitだけで正しさは分からない。テストや観察と一緒に使う。機能追加と構造整理も分けて進めよう。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 関数は短くするための呪文じゃない。読めて、確かめられて、変えやすい仕事の約束！
-        seconds: 7.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 自分の作品から、目的を一言で言える仕事を一つ探そう。入力、結果、影響を説明できたら、最初の一歩だよ。
-        seconds: 9.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:66
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:67
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:68
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:69
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:70
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:71
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:72
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:73
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:74
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:75
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:76
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:77
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: refactor_quiz
   refactor_quiz:
     - stage: Quiz_functions_refactor
@@ -1193,16 +1119,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -1227,21 +1146,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 勝利条件を変えると利用者から見た動きが変わるね。構造を整理し、振る舞いを保つ方を選ぼう。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:78
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: refactor_quiz
   refactor_yes:
     - stage: Recap_functions_refactor
@@ -1255,21 +1175,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 外から見た振る舞いを保つ構造の改善だね。変更前後を確認し、小さく進めよう。これで六単元、おつかれさま！
-        seconds: 9.6
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:79
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
